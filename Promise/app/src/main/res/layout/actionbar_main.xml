@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    >
+
+    <ImageView
+        android:id="@+id/action_bar_main_calendar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/icon_calendar"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name_korean"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:layout_centerInParent="true"
+        android:textColor="#FFFFFF"
+        android:id="@+id/textView3" />
+
+    <ImageView
+        android:id="@+id/action_bar_main_person"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/icon_user_plus"
+        android:layout_alignTop="@+id/action_bar_main_setting"
+        android:layout_toStartOf="@+id/action_bar_main_setting"
+        android:layout_marginEnd="13dp" />
+
+    <ImageView
+        android:id="@+id/action_bar_main_setting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/icon_settings"
+        android:layout_alignTop="@+id/textView3"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp" />
+
+
+</RelativeLayout>
