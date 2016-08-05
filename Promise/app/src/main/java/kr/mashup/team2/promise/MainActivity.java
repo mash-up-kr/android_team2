@@ -77,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         btnCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "캘린더 클릭", Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainActivity.this, CalendarActivity.class));
             }
         });
@@ -86,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         btnUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, "사람 클릭", Toast.LENGTH_SHORT).show();
+
             }
         });
 

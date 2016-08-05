@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,6 +19,8 @@ import butterknife.ButterKnife;
 public class AddScheduleMemberFragment extends Fragment {
 
     @BindView(R.id.recycler_view_add_friend) RecyclerView recyclerView;
+    @BindView(R.id.et_add_search_friend) EditText etSearch;
+    @BindView(R.id.recycelr_view_added_member) RecyclerView recyclerViewAddedMember;
     View view;
 
     @Nullable
@@ -31,6 +34,11 @@ public class AddScheduleMemberFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         FriendViewAdapter friendViewAdapter = new FriendViewAdapter(getContext());
         recyclerView.setAdapter(friendViewAdapter);
+
+        LinearLayoutManager layoutManagerAddedMember = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        recyclerViewAddedMember.setLayoutManager(layoutManagerAddedMember);
+        AddedMemberAdapter addedMemberAdapter = new AddedMemberAdapter(getContext());
+        recyclerViewAddedMember.setAdapter(addedMemberAdapter);
 
         setCustomActionbar();
 

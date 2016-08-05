@@ -9,19 +9,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import kr.mashup.team2.promise.DB.MyDBHelper;
 
 public class FriendViewAdapter extends RecyclerView.Adapter<FriendViewHolder>{
     private Context context;
-    private List<FriendObject> itemList;
+    private ArrayList<FriendObject> itemList;
     private MyDBHelper myDBHelper;
 
     public FriendViewAdapter(Context context) {
         this.context = context;
         myDBHelper = new MyDBHelper(context);
-        itemList = new ArrayList<>();
+        itemList = new ArrayList<FriendObject>();
         initSampleData();
     }
 
@@ -53,15 +52,23 @@ public class FriendViewAdapter extends RecyclerView.Adapter<FriendViewHolder>{
 
     @Override
     public FriendViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.friend_itme_list, null);
-        FriendViewHolder holder = new FriendViewHolder(layoutView);
+        View layoutView = LayoutInflater.from(parent.getContext()).inflate(R.layout.friend_item_list, null);
+        FriendViewHolder holder = new FriendViewHolder(layoutView, itemList);
 
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(FriendViewHolder holder, int position) {
+    public void onBindViewHolder(FriendViewHolder holder, final int position) {
         holder.tvFriendName.setText(itemList.get(position).getName());
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                itemList.remove(position);
+                notifyItemRemoved(position);
+                notifyItemRangeChanged(position, getItemCount());
+            }
+        });
 
     }
 
